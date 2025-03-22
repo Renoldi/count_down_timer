@@ -83,7 +83,9 @@ class CountdownTimerState extends State<CountdownTimer> {
       stream: _controller.stream,
       builder: (context, snapshot) {
         if (!snapshot.hasData) return CircularProgressIndicator();
-        return Text(formatTime(snapshot.data!), style: widget.textStyle);
+        return snapshot.data! <= 0
+            ? Text("")
+            : Text(formatTime(snapshot.data!), style: widget.textStyle);
       },
     );
   }
