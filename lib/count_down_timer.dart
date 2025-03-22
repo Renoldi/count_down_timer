@@ -5,12 +5,14 @@ class CountdownTimer extends StatefulWidget {
   final Duration duration;
   final VoidCallback onFinish;
   final bool isRunning;
+  final TextStyle textStyle;
 
   const CountdownTimer({
     super.key,
     this.duration = const Duration(minutes: 1),
     required this.onFinish,
     this.isRunning = true,
+    this.textStyle = const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
   });
 
   @override
@@ -81,10 +83,7 @@ class CountdownTimerState extends State<CountdownTimer> {
       stream: _controller.stream,
       builder: (context, snapshot) {
         if (!snapshot.hasData) return CircularProgressIndicator();
-        return Text(
-          formatTime(snapshot.data!),
-          style: TextStyle(fontSize: 48, fontWeight: FontWeight.bold),
-        );
+        return Text(formatTime(snapshot.data!), style: widget.textStyle);
       },
     );
   }
