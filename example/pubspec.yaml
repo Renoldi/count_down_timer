@@ -1,0 +1,27 @@
+name: count_down_timer_example
+description: "Demonstrates how to use the count_down_timer plugin."
+
+publish_to: "none"
+
+environment:
+  sdk: ^3.7.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  count_down_timer:
+    path: ../
+
+  cupertino_icons: any
+
+dev_dependencies:
+  integration_test:
+    sdk: flutter
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: any
+
+flutter:
+  uses-material-design: true
